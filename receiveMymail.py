@@ -33,9 +33,9 @@ with imapclient.IMAPClient('imap.gmail.com', ssl=True) as imapObj:
         #     print(message.text_part.get_payload().decode(message.text_part.charset))
         # if(message.html_part != None):
         #     print(message.html_part.get_payload().decode(message.html_part.charset))
-        if len(file_name)<20:
+        if len(file_name)<30:
             with open(file_name, "wb") as myfile:
                     myfile.write(attachment.get_payload(decode=True))
-    if len(file_name)<20:
+    if len(file_name)<30:
         imapObj.delete_messages(UIDs)
         imapObj.expunge()
